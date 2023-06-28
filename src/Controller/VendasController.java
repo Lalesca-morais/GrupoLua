@@ -13,13 +13,23 @@ import java.util.Map;
 public class VendasController {
     static List<ProdutosModel> produtos = new ArrayList<>();
     List<VendasModel> vendas = new ArrayList<>();
-    public void cadastrarCompra(String cpfC, String emailF, int quantidade, String nomeDoProduto) {
+    public  void produtosDisponiveis(){
         ProdutosModel celular1 = new ProdutosModel("Celular1", 1233211, 2500, 0);
         ProdutosModel celular2 = new ProdutosModel("Celular2", 1876211, 2799, 0);
         ProdutosModel celular3 = new ProdutosModel("Celular3", 1233644, 3179, 0);
         produtos.add(celular1);
         produtos.add(celular2);
         produtos.add(celular3);
+
+
+        for (ProdutosModel produto : produtos) {
+            System.out.println(produto);
+            System.out.println();
+        }
+
+    }
+    public void cadastrarCompra(String cpfC, String emailF, int quantidade, String nomeDoProduto) {
+
         try {
             if (!ClienteController.clientes.containsKey(cpfC)) {
                 throw new IllegalArgumentException("Cliente não cadastrado");
@@ -30,10 +40,6 @@ public class VendasController {
             for (ProdutosModel produto : produtos) {
                 produto.setQuantidade(quantidade);
                 produto.setValorTotal(produto.getQuantidade() * produto.getPreco());
-            }
-            for (ProdutosModel produto : produtos) {
-                System.out.println(produto);
-                System.out.println();
             }
             ProdutosModel produtoTemporario = null;
             for (ProdutosModel produto : produtos) {
