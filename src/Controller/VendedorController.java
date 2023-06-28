@@ -11,7 +11,6 @@ import java.util.Map;
 public class VendedorController {
     public static Map<String, VendedorModel> vendedores = new HashMap<>(2);
     public void cadastrarFuncionario(String nomeF, String emailF, String cpfF) {
-        vendedores.put("raissa@gmail.com", new VendedorModel("Raissa", "raissa@gmail.com", "1234"));
         try {
 
             if (!metodoUsadoParaValidarAEntradaDoEmail(emailF)) {

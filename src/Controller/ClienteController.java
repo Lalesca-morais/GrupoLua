@@ -27,11 +27,10 @@ public class ClienteController {
             if (encontrado) {
                 throw new IllegalArgumentException("E-mail ja cadastrado para outro cliente");
             }
-            String cpfCliente = String.valueOf(Integer.parseInt(cpfC));
-            if (clientes.containsKey(cpfCliente)) {
+            if (clientes.containsKey(cpfC)) {
                 throw new IllegalArgumentException("CPF ja cadastrado para outro cliente");
             }
-            clientes.put(cpfC, new ClienteModel(nomeC, emailC, cpfCliente));
+            clientes.put(cpfC, new ClienteModel(nomeC, emailC, cpfC));
             System.out.println("Registrado com sucesso");
 
         } catch (IllegalArgumentException exception) {
